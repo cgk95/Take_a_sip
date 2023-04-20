@@ -1,48 +1,49 @@
 package com.example.myapi.Repository.Entity;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @NoArgsConstructor
 @Getter
-@Table(name = "berverage")
+@Table(name = "beverage") // 가장 하위의 아이템(음료) 정보를 담음
 public class Beverage {
+    /**
+     * 음료를 표현할 기본 키 :: 자동으로 증가
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "berverage_id")
+    @Column(name = "beverage_id")
     private Long id;
 
-    @Column(nullable = false)
+    /**
+     * 음료 이름
+     */
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(columnDefinition = "TEXT")
+    /**
+     * 음료에 대한 간단한 설명
+     */
+    @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(nullable = false)
-    private String hotOrIced;
+    @OneToMany(mappedBy = "beverage", cascade = CascadeType.ALL)
+    private List<Option> options = new ArrayList<>();
 
-    @Column(nullable = false)
-    private String size; // 세가지 선택지가 있는 경우 String이 낫나, 정수 기반으로 분류하는게 낫나...?
-
-    @Column(nullable = false)
-    private Integer price;
-
-    @Column(nullable = false)
-    private Boolean takeOut; // true면 테이크아웃
-
-//    @Column :: 컬럼 너무 많다, 내가 감당 못함
-//    private Boolean decaffein;
-    @Builder
-    public Beverage(String name,String description,String hotOrIced,String size,Integer price,Boolean takeOut){
-        this.name=name;
-        this.description=description;
-        this.hotOrIced=hotOrIced;
-        this.size=size;
-        this.price=price;
-        this.takeOut=takeOut;
+    public void addOption(Option option) {
+        options.add(option);
+        option.setBeverage(this);
     }
+
+    public void removeOption(Option option) {
+        options.remove(option);
+        option.setBeverage(null);
+    }
+
 }
