@@ -2,6 +2,7 @@ package com.example.myapi.Repository.Entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Getter
+@Repository
 @Table(name = "beverage") // 가장 하위의 아이템(음료) 정보를 담음
 public class Beverage {
     /**
