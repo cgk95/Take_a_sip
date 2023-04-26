@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BeverageRepository extends JpaRepository<Beverage, Long>{
-    public Beverage findBeverageByName(String name);
+    Beverage findBeverageByName(String name);
 
 }
