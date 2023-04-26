@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 @Entity
 @Table(name = "option")
@@ -24,18 +23,14 @@ public class Option {
     @Column(nullable = false)
     private Temperature temperature;
 
-    @Column(name = "price")
-    private BigDecimal price; // Integer 대신 계산 오류 가능성이 적은 BigDecimal 사용한다고 함
-
-    @ManyToOne(fetch = FetchType.LAZY) // 필요할 때만 Fetch 하는 타입
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "beverage_id")
     private Beverage beverage;
 
     @Builder
-    public Option(Size size, Temperature temperature, BigDecimal price) {
+    public Option(Size size, Temperature temperature) {
         this.size = size;
         this.temperature = temperature;
-        this.price = price;
     }
 
     public void setBeverage(Beverage beverage) {
