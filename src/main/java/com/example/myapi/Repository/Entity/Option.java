@@ -3,13 +3,18 @@ package com.example.myapi.Repository.Entity;
 import com.example.myapi.Repository.Size;
 import com.example.myapi.Repository.Temperature;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "option")
 @NoArgsConstructor
+@Setter
+@Getter
 public class Option {
 
     @Id
@@ -23,14 +28,18 @@ public class Option {
     @Column(nullable = false)
     private Temperature temperature;
 
+    @Column(nullable = false)
+    private BigDecimal price;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "beverage_id")
     private Beverage beverage;
 
     @Builder
-    public Option(Size size, Temperature temperature) {
+    public Option(Size size, Temperature temperature, BigDecimal price) {
         this.size = size;
         this.temperature = temperature;
+        this.price = price;
     }
 
     public void setBeverage(Beverage beverage) {
