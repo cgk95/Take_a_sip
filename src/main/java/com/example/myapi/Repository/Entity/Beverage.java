@@ -1,5 +1,6 @@
 package com.example.myapi.Repository.Entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -24,18 +25,23 @@ public class Beverage {
     private String name;
 
     @Column(name = "description", nullable = false)
-
     private String description;
 
     @OneToMany(mappedBy = "beverage", cascade = CascadeType.ALL)
     private List<Option> options = new ArrayList<>();
+
+    @Builder
+    public Beverage(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public void addOption(Option option) {
         options.add(option);
         option.setBeverage(this);
     }
 
-    public void removeOption(Option option) {
+    public void removeOption(Option option) { // TODO :: 옵션 항목을 제거하는 기능 구현하기
         options.remove(option);
         option.setBeverage(null);
     }
