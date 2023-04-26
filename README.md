@@ -5,7 +5,7 @@
 
 ### 음료 등록 
 ```
- PUT ./products/beverage/espressos/{새 item 이름}
+POST ./products/beverage/espressos/{새 item 이름}
 ```
 
 ### 음료 전체 조회 
@@ -21,7 +21,7 @@
 
 ### 음료 수정
 ```
- PUT ./products/beverage/non-espressos/{item 이름}
+ POST ./products/beverage/non-espressos/{item 이름}
 ```
 
 ### 음료 삭제
