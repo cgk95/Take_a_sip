@@ -1,7 +1,7 @@
-package com.example.myapi.Repository.Entity;
+package com.example.myapi.Products.Repository.Entity;
 
-import com.example.myapi.Repository.Size;
-import com.example.myapi.Repository.Temperature;
+import com.example.myapi.Products.Repository.Size;
+import com.example.myapi.Products.Repository.Temperature;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

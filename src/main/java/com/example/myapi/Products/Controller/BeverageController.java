@@ -1,30 +1,25 @@
-package com.example.myapi.Controller;
+package com.example.myapi.Products.Controller;
 
-import com.example.myapi.Repository.Entity.Beverage;
-import com.example.myapi.Service.BeverageService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.myapi.Products.Repository.Entity.Beverage;
+import com.example.myapi.Products.Service.BeverageService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
+@RequiredArgsConstructor
 @RequestMapping("/beverage")
 public class BeverageController {
     private final BeverageService beverageService;
 
-    @Autowired
-    public BeverageController(BeverageService beverageService) {
-        this.beverageService = beverageService;
+    @GetMapping("/get/All")
+    public ResponseEntity<List<Beverage>> getAllBeverage() {
+        return ResponseEntity.ok(beverageService.getAllBeverages());
     }
 
-    @GetMapping("/all")
-    public List<Beverage> getAllBeverage() {
-        return beverageService.getAllBeverages();
-    }
-
-    @GetMapping("/{name}")
+    @GetMapping("/get/{name}")
     public ResponseEntity<Beverage> getBeverageByName(@PathVariable String name) {
         Beverage beverage = beverageService.findBeverageByName(name).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 음료 이름입니다."));
         if (beverage == null) {
@@ -33,11 +28,10 @@ public class BeverageController {
         return ResponseEntity.ok().body(beverage);
     }
 
-    @PostMapping
-    public ResponseEntity<BeverageDTO> addBeverage(@RequestBody BeverageDTO beverageDTO) { // HTTP 메서드의 BODY 로 SON 입력을 받아서 서비스로 넘겨주자
+    @PostMapping(value="/addBeverage")
+    public ResponseEntity<BeverageDTO> addBeverage(@RequestBody BeverageDTO beverageDTO) {
         beverageService.addBeverage(beverageDTO);
         return ResponseEntity.ok().build();
     }
-
 
 }

@@ -1,7 +1,7 @@
-package com.example.myapi.Controller;
+package com.example.myapi.Products.Controller;
 
-import com.example.myapi.Repository.Size;
-import com.example.myapi.Repository.Temperature;
+import com.example.myapi.Products.Repository.Size;
+import com.example.myapi.Products.Repository.Temperature;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

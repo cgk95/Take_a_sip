@@ -1,13 +1,13 @@
-package com.example.myapi.Service;
+package com.example.myapi.Products.Service;
 
-import com.example.myapi.Controller.BeverageDTO;
-import com.example.myapi.Controller.OptionDTO;
-import com.example.myapi.Repository.BeverageRepository;
-import com.example.myapi.Repository.Entity.Beverage;
-import com.example.myapi.Repository.Entity.Option;
+import com.example.myapi.Products.Controller.BeverageDTO;
+import com.example.myapi.Products.Controller.OptionDTO;
+import com.example.myapi.Products.Repository.BeverageRepository;
+import com.example.myapi.Products.Repository.Entity.Beverage;
+import com.example.myapi.Products.Repository.Entity.Option;
 
-import com.example.myapi.Repository.Size;
-import com.example.myapi.Repository.Temperature;
+import com.example.myapi.Products.Repository.Size;
+import com.example.myapi.Products.Repository.Temperature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

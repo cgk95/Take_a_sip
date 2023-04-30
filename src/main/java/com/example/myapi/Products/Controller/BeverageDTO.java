@@ -1,4 +1,4 @@
-package com.example.myapi.Controller;
+package com.example.myapi.Products.Controller;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

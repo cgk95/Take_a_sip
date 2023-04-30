@@ -1,4 +1,4 @@
-package com.example.myapi.Repository.Entity;
+package com.example.myapi.Products.Repository.Entity;
 
 import lombok.Builder;
 import lombok.Getter;
