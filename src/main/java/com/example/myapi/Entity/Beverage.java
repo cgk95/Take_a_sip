@@ -1,4 +1,5 @@
 package com.example.myapi.Entity;
+import com.example.myapi.Order.Order;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -29,6 +30,10 @@ public class Beverage {
 
     @OneToMany(mappedBy = "beverage", cascade = CascadeType.ALL)
     private List<Option> options = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "order_id")
+    private Order order;
 
     @Builder
     public Beverage(String name, String description) {
