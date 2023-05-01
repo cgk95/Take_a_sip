@@ -1,4 +1,4 @@
-package com.example.myapi.Entity;
+package com.example.myapi.Entity.Enums;
 
 public enum Temperature {
     HOT,

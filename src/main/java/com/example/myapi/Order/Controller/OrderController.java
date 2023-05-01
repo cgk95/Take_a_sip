@@ -1,5 +1,6 @@
-package com.example.myapi.Order;
+package com.example.myapi.Order.Controller;
 
+import com.example.myapi.Order.Service.OrderService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

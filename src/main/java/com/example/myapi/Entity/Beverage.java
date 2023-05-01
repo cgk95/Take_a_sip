@@ -1,5 +1,4 @@
 package com.example.myapi.Entity;
-import com.example.myapi.Order.Order;
 
 import lombok.Builder;
 import lombok.Getter;

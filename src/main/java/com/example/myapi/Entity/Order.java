@@ -1,4 +1,4 @@
-package com.example.myapi.Order;
+package com.example.myapi.Entity;
 import com.example.myapi.Entity.Beverage;
 import javax.persistence.*;
 

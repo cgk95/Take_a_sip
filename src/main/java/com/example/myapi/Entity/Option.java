@@ -1,5 +1,7 @@
 package com.example.myapi.Entity;
 
+import com.example.myapi.Entity.Enums.Size;
+import com.example.myapi.Entity.Enums.Temperature;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
