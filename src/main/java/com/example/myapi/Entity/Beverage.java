@@ -1,4 +1,4 @@
-package com.example.myapi.Products.Repository.Entity;
+package com.example.myapi.Entity;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 @NoArgsConstructor
 @Getter
-@Table(name = "beverage") // 가장 하위의 아이템(음료) 정보를 담음
+@Table(name = "beverage")
 public class Beverage {
 
     @Id

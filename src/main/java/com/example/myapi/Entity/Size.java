@@ -1,4 +1,4 @@
-package com.example.myapi.Products.Repository;
+package com.example.myapi.Entity;
 
 public enum Size {
     TALL,

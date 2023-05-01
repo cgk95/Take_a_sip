@@ -1,11 +1,8 @@
-package com.example.myapi.Products.Repository.Entity;
+package com.example.myapi.Entity;
 
-import com.example.myapi.Products.Repository.Size;
-import com.example.myapi.Products.Repository.Temperature;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -13,7 +10,6 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "option")
 @NoArgsConstructor
-@Setter
 @Getter
 public class Option {
 

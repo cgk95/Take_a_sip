@@ -1,6 +1,6 @@
 package com.example.myapi.Products.Controller;
 
-import com.example.myapi.Products.Repository.Entity.Beverage;
+import com.example.myapi.Entity.Beverage;
 import com.example.myapi.Products.Service.BeverageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/beverage")
+@RequestMapping("/test")
 public class BeverageController {
     private final BeverageService beverageService;
 
