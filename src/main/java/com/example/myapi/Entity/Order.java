@@ -1,13 +1,15 @@
 package com.example.myapi.Entity;
-import com.example.myapi.Entity.Beverage;
-import javax.persistence.*;
 
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 
 @Entity
+@NoArgsConstructor
 @Table(name = "order")
 public class Order {
 
@@ -20,7 +22,13 @@ public class Order {
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     private List<Beverage> orderList = new ArrayList<>();
 
-    private LocalDateTime orderDateTime; // 주문시간
+    private LocalDateTime orderDateTime;
+
+    public Order(List<Beverage> orderList, LocalDateTime localDateTime) {
+        this.orderList = orderList;
+        this.orderDateTime = localDateTime;
+    }
+    // TODO :: 누가 주문했는 지, 가격은 얼마 인지, 등에 대한 정보를 추가해야 함
 
 
 }
