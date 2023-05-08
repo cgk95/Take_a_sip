@@ -1,15 +1,13 @@
-package com.example.myapi.Controller;
+package com.example.myapi.Products.Controller;
 
-import com.example.myapi.Repository.Size;
-import com.example.myapi.Repository.Temperature;
+import com.example.myapi.Entity.Enums.Size;
+import com.example.myapi.Entity.Enums.Temperature;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @Getter
-@Setter
 @NoArgsConstructor
 public class OptionDTO {
     private String size;
@@ -17,7 +15,7 @@ public class OptionDTO {
     private BigDecimal price;
 
     public OptionDTO(Size size, Temperature temperature, BigDecimal price) {
-        this.size = size.name(); // Enum을 이용한 String으로 넘기기
+        this.size = size.name();
         this.temperature = temperature.name();
         this.price = price;
     }

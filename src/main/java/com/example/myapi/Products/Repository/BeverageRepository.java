@@ -1,6 +1,6 @@
-package com.example.myapi.Repository;
+package com.example.myapi.Products.Repository;
 
-import com.example.myapi.Repository.Entity.Beverage;
+import com.example.myapi.Entity.Beverage;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

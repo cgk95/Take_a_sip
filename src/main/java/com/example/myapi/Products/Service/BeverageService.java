@@ -1,13 +1,12 @@
-package com.example.myapi.Service;
+package com.example.myapi.Products.Service;
 
-import com.example.myapi.Controller.BeverageDTO;
-import com.example.myapi.Controller.OptionDTO;
-import com.example.myapi.Repository.BeverageRepository;
-import com.example.myapi.Repository.Entity.Beverage;
-import com.example.myapi.Repository.Entity.Option;
-
-import com.example.myapi.Repository.Size;
-import com.example.myapi.Repository.Temperature;
+import com.example.myapi.Products.Controller.BeverageDTO;
+import com.example.myapi.Products.Controller.OptionDTO;
+import com.example.myapi.Products.Repository.BeverageRepository;
+import com.example.myapi.Entity.Beverage;
+import com.example.myapi.Entity.Option;
+import com.example.myapi.Entity.Enums.Size;
+import com.example.myapi.Entity.Enums.Temperature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,19 +23,14 @@ public class BeverageService {
         this.beverageRepository = beverageRepository;
     }
 
-    // 등록
     @Transactional
     public void addBeverage(BeverageDTO beverageDTO) { // FIXME :: 반복문을 따로 객체로 분리해서 mapper 만들기
         Beverage newBeverage = new Beverage(beverageDTO.getName(), beverageDTO.getDescription());
 
-        for(OptionDTO curr : beverageDTO.getOptions()){
-            Option newOption = new Option();
-            newOption.setSize(Size.valueOf(curr.getSize()));
-            newOption.setTemperature(Temperature.valueOf(curr.getTemperature()));
-            newOption.setPrice(curr.getPrice());
+        for (OptionDTO curr : beverageDTO.getOptions()) {
+            Option newOption = new Option(Size.valueOf(curr.getSize()), Temperature.valueOf(curr.getTemperature()), curr.getPrice());
             newBeverage.addOption(newOption);
         }
-
         beverageRepository.save(newBeverage);
     }
 
